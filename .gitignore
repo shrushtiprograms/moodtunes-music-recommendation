@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.pkl
+*.h5
+music_env/
+venv/
+env/
+.env
+config.json
+backend/config.json
+*.csv
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

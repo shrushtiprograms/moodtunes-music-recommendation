@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MoodTunes - Emotion-Based Music Recommendation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="theme-purple">
+    <div class="bg-gradient"></div>
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="panel-header">
+            <h3>Settings</h3>
+            <button class="close-panel" id="closeSettings">×</button>
+        </div>
+        <div class="panel-content">
+            <!-- Theme Section -->
+            <div class="settings-section">
+                <h4 class="section-title">Theme Colors</h4>
+                <div class="color-grid">
+                    <div class="color-option theme-purple active" data-theme="purple"></div>
+                    <div class="color-option theme-blue" data-theme="blue"></div>
+                    <div class="color-option theme-green" data-theme="green"></div>
+                    <div class="color-option theme-pink" data-theme="pink"></div>
+                    <div class="color-option theme-orange" data-theme="orange"></div>
+                    <div class="color-option theme-teal" data-theme="teal"></div>
+                    <div class="color-option theme-beige" data-theme="beige"></div>
+                </div>
+            </div>
+
+            <!-- Dark Mode Section -->
+            <div class="settings-section">
+                <h4 class="section-title">Appearance</h4>
+                <div class="toggle-group">
+                    <label class="toggle-item">
+                        <span class="toggle-label">Dark Mode</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="toggle-slider">
+                                <span class="toggle-icon sun">☀️</span>
+                                <span class="toggle-icon moon">🌙</span>
+                            </span>
+                        </label>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Filters Section -->
+            <div class="settings-section">
+                <h4 class="section-title">Music Preferences</h4>
+                
+                <div class="filter-group">
+                    <h5 class="filter-subtitle">Music Category</h5>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="radio" name="category" value="All" checked>
+                            <span class="radio-checkmark"></span>
+                            All Categories
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="category" value="Bollywood">
+                            <span class="radio-checkmark"></span>
+                            Bollywood
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="category" value="English">
+                            <span class="radio-checkmark"></span>
+                            English
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h5 class="filter-subtitle">Sort By</h5>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="radio" name="sort" value="default" checked>
+                            <span class="radio-checkmark"></span>
+                            Default
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="sort" value="asc">
+                            <span class="radio-checkmark"></span>
+                            Title A-Z
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="sort" value="desc">
+                            <span class="radio-checkmark"></span>
+                            Title Z-A
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-actions">
+                <button class="btn-apply" onclick="applySettings()">Apply Settings</button>
+                <button class="btn-reset" onclick="resetSettings()">Reset to Default</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="panel-overlay" id="panelOverlay"></div>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-content glass-effect">
+                <div class="logo-section">
+                    <div class="logo-icon">🎵</div>
+                    <div>
+                        <h1 class="title">MoodTunes</h1>
+                        <p class="subtitle">AI-Powered Music for Your Mood</p>
+                    </div>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="settings-btn" id="settingsBtn">
+                        <span class="settings-icon">⚙️</span>
+                        <span class="settings-text">Settings</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <section class="search-section">
+            <div class="search-card glass-effect">
+                <h2 class="search-title">How are you feeling today?</h2>
+                <div class="search-box">
+                    <div class="search-input-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Tell me how you're feeling... (e.g., I'm happy, sad, excited)" 
+                            autocomplete="off"
+                        />
+                    </div>
+                    <button class="btn-search" onclick="analyzeMood()">
+                        <span class="btn-icon">🎯</span>
+                        <span class="btn-text">Find Music</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div id="resultsContainer"></div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
