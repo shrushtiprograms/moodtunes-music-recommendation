@@ -8,7 +8,7 @@ env/
 .env
 config.json
 backend/config.json
-*.csv
+.csv
 .DS_Store
 Thumbs.db
 .vscode/
