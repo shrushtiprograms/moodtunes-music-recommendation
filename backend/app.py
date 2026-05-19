@@ -49,13 +49,13 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Get current directory and set correct paths
-current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.dirname(current_dir)  # Go one level up to project root
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Define paths for static files and templates
-static_dir = os.path.join(project_root, "frontend", "static")
-templates_dir = os.path.join(project_root, "frontend", "templates")
+static_dir = os.path.join(BASE_DIR, "..", "frontend", "static")
+templates_dir = os.path.join(BASE_DIR, "..", "frontend", "templates")
+
+static_dir = os.path.abspath(static_dir)
+templates_dir = os.path.abspath(templates_dir)
 
 # Create directories if they don't exist
 os.makedirs(static_dir, exist_ok=True)
