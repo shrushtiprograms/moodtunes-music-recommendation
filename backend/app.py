@@ -51,11 +51,11 @@ app = FastAPI(
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-static_dir = os.path.join(BASE_DIR, "..", "frontend", "static")
-templates_dir = os.path.join(BASE_DIR, "..", "frontend", "templates")
+static_dir = os.path.abspath(os.path.join(BASE_DIR, "frontend", "static"))
+templates_dir = os.path.abspath(os.path.join(BASE_DIR, "frontend", "templates"))
 
-static_dir = os.path.abspath(static_dir)
-templates_dir = os.path.abspath(templates_dir)
+#static_dir = os.path.abspath(static_dir)
+#templates_dir = os.path.abspath(templates_dir)
 
 # Create directories if they don't exist
 os.makedirs(static_dir, exist_ok=True)
